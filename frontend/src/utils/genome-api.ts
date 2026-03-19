@@ -1,4 +1,4 @@
-import { Viaoda_Libre } from "next/font/google";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-return */
 import { env } from "~/env";
 
 export interface GenomeAssemblyFromSearch {
@@ -82,13 +82,13 @@ export async function getAvailableGenomes() {
 
   for (const genomeId in genomes) {
     const genomeInfo = genomes[genomeId];
-    const organism = genomeInfo.organism || "Other";
+    const organism: string = genomeInfo.organism ?? "Other";
 
-    if (!structuredGenomes[organism]) structuredGenomes[organism] = [];
+    structuredGenomes[organism] ??= [];
     structuredGenomes[organism].push({
       id: genomeId,
-      name: genomeInfo.description || genomeId,
-      sourceName: genomeInfo.sourceName || genomeId,
+      name: genomeInfo.description ?? genomeId,
+      sourceName: genomeInfo.sourceName ?? genomeId,
       active: !!genomeInfo.active,
     });
   }
@@ -154,7 +154,7 @@ export async function searchGenes(query: string, genome: string) {
 
   if (data[0] > 0) {
     const fieldMap = data[2];
-    const geneIds = fieldMap.GeneID || [];
+    const geneIds = fieldMap.GeneID ?? [];
     for (let i = 0; i < Math.min(10, data[0]); ++i) {
       if (i < data[3].length) {
         try {
@@ -168,7 +168,7 @@ export async function searchGenes(query: string, genome: string) {
             name: display[3],
             chrom,
             description: display[3],
-            gene_id: geneIds[i] || "",
+            gene_id: geneIds[i] ?? "",
           });
         } catch {
           continue;
@@ -198,7 +198,7 @@ export async function fetchGeneDetails(geneId: string): Promise<{
 
     const detailData = await detailsResponse.json();
 
-    if (detailData.result && detailData.result[geneId]) {
+    if (detailData.result?.[geneId]) {
       const detail = detailData.result[geneId];
 
       if (detail.genomicinfo && detail.genomicinfo.length > 0) {
@@ -218,7 +218,7 @@ export async function fetchGeneDetails(geneId: string): Promise<{
     }
 
     return { geneDetails: null, geneBounds: null, initialRange: null };
-  } catch (err) {
+  } catch (_err) {
     return { geneDetails: null, geneBounds: null, initialRange: null };
   }
 }
@@ -252,7 +252,7 @@ export async function fetchGeneSequence(
     const sequence = data.dna.toUpperCase();
 
     return { sequence, actualRange };
-  } catch (err) {
+  } catch (_err) {
     return {
       sequence: "",
       actualRange: { start, end },
@@ -292,8 +292,7 @@ export async function fetchClinvarVariants(
   const searchData = await searchResponse.json();
 
   if (
-    !searchData.esearchresult ||
-    !searchData.esearchresult.idlist ||
+    !searchData.esearchresult?.idlist ||
     searchData.esearchresult.idlist.length === 0
   ) {
     console.log("No ClinVar variants found");
@@ -323,13 +322,13 @@ export async function fetchClinvarVariants(
   const summaryData = await summaryResponse.json();
   const variants: ClinvarVariant[] = [];
 
-  if (summaryData.result && summaryData.result.uids) {
+  if (summaryData.result?.uids) {
     for (const id of summaryData.result.uids) {
       const variant = summaryData.result[id];
       variants.push({
         clinvar_id: id,
         title: variant.title,
-        variation_type: (variant.obj_type || "Unknown")
+        variation_type: ((variant.obj_type ?? "Unknown") as string)
           .split(" ")
           .map(
             (word: string) =>
@@ -337,8 +336,8 @@ export async function fetchClinvarVariants(
           )
           .join(" "),
         classification:
-          variant.germline_classification.description || "Unknown",
-        gene_sort: variant.gene_sort || "",
+          variant.germline_classification.description ?? "Unknown",
+        gene_sort: variant.gene_sort ?? "",
         chromosome: chromFormatted,
         location: variant.location_sort
           ? parseInt(variant.location_sort).toLocaleString()
@@ -379,5 +378,5 @@ export async function analyzeVariantWithAPI({
     throw new Error("Failed to analyze variant " + errorText);
   }
 
-  return await response.json();
+  return (await response.json()) as AnalysisResult;
 }
