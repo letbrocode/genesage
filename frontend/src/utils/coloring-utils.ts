@@ -9,7 +9,7 @@ export function getNucleotideColorClass(nucleotide: string): string {
     case "C":
       return "text-amber-600";
     default:
-      return "text-gray-500";
+      return "text-muted-foreground";
   }
 }
 
