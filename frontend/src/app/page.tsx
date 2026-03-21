@@ -194,12 +194,16 @@ export default function HomePage() {
                   onValueChange={handleGenomeChange}
                   disabled={isLoading}
                 >
-                  <SelectTrigger className="h-9 w-full">
+                  <SelectTrigger className="border-border bg-card text-foreground focus-visible:ring-ring/40 h-9 w-full">
                     <SelectValue placeholder="Select genome assembly" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="border-border bg-card text-foreground">
                     {genomes.map((genome) => (
-                      <SelectItem key={genome.id} value={genome.id}>
+                      <SelectItem
+                        key={genome.id}
+                        value={genome.id}
+                        className="focus:bg-primary/10"
+                      >
                         {genome.id} - {genome.name}
                         {genome.active ? " (active)" : ""}
                       </SelectItem>
