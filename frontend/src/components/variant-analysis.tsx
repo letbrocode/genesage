@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   type AnalysisResult,
@@ -116,13 +116,13 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
     };
 
     return (
-      <Card className="gap-0 py-0 shadow-sm">
-        <CardHeader className="pt-4 pb-2">
-          <CardTitle className="text-muted-foreground text-sm font-normal">
+      <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+        <CardHeader className="bg-muted/40 pt-5 pb-3">
+          <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
             Variant Analysis
           </CardTitle>
         </CardHeader>
-        <CardContent className="pb-4">
+        <CardContent className="pt-4 pb-5">
           <p className="text-foreground/80 mb-4 text-xs">
             Predict the impact of genetic variants using the Evo2 deep learning
             model.
@@ -161,7 +161,7 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
                 >
                   {variantReference}
                 </span>
-                <span>→</span>
+                <span>{"->"}</span>
                 <span
                   className={`font-medium ${getNucleotideColorClass(variantAlternative)}`}
                 >
@@ -362,3 +362,4 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
 VariantAnalysis.displayName = "VariantAnalysis";
 
 export default VariantAnalysis;
+

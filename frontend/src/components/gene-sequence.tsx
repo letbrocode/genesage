@@ -262,14 +262,14 @@ export function GeneSequence({
   }, [sequenceData, sequenceRange, onSequenceClick]);
 
   return (
-    <Card className="gap-0 py-0 shadow-sm">
-      <CardHeader className="pt-4 pb-2">
-        <CardTitle className="text-muted-foreground text-sm font-normal">
+    <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+      <CardHeader className="bg-muted/40 pt-5 pb-3">
+        <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
           Gene Sequence
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="pb-4">
+      <CardContent className="pt-4 pb-5">
         {geneBounds && (
           <div className="mb-4 flex flex-col">
             <div className="mb-2 flex flex-col items-center justify-between text-xs sm:flex-row">
@@ -342,14 +342,14 @@ export function GeneSequence({
                     type="text"
                     inputMode="numeric"
                     pattern="[0-9]*"
-                    className="h-7 w-full border-border text-xs sm:w-28"
+                    className="h-8 w-full rounded-lg border-border/80 bg-background text-xs sm:w-28"
                   />
                 </div>
                 <Button
                   size="sm"
                   disabled={isLoading}
                   onClick={onSequenceLoadRequest}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 h-7 w-full cursor-pointer text-xs sm:w-auto"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 w-full cursor-pointer rounded-lg px-4 text-xs sm:w-auto"
                 >
                   {isLoading ? "Loading..." : "Load sequence"}
                 </Button>
@@ -361,7 +361,7 @@ export function GeneSequence({
                     type="text"
                     inputMode="numeric"
                     pattern="[0-9]*"
-                    className="h-7 w-full border-border text-xs sm:w-28"
+                    className="h-8 w-full rounded-lg border-border/80 bg-background text-xs sm:w-28"
                   />
                 </div>
               </div>

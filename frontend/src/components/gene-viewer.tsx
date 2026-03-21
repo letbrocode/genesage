@@ -228,7 +228,7 @@ export default function GeneViewer({
       <Button
         variant="ghost"
         size="sm"
-        className="text-foreground hover:bg-muted/70 cursor-pointer"
+        className="text-foreground hover:bg-muted/70 h-9 cursor-pointer rounded-full border border-border/70 px-4"
         onClick={onClose}
       >
         <ArrowLeft className="mr-2 h-4 w-4" />

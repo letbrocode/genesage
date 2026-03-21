@@ -147,20 +147,23 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="bg-primary/15 pointer-events-none absolute top-[-10rem] left-[-8rem] h-72 w-72 rounded-full blur-3xl" />
+      <div className="bg-accent/15 pointer-events-none absolute right-[-8rem] bottom-[-8rem] h-72 w-72 rounded-full blur-3xl" />
+
+      <header className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
+        <div className="mx-auto w-full max-w-7xl px-6 py-4">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
               <div className="relative">
-                <h1 className="text-xl font-light tracking-wide text-foreground">
-                  <span className="font-normal">GENE</span>
+                <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+                  <span>GENE</span>
                   <span className="text-primary">SAGE</span>
                 </h1>
-                <div className="bg-primary absolute -bottom-1 left-0 h-[2px] w-12"></div>
+                <div className="bg-primary absolute -bottom-1 left-0 h-[3px] w-16 rounded-full"></div>
               </div>
-              <span className="text-muted-foreground text-sm font-light">
-                Variant Analysis
+              <span className="text-muted-foreground hidden text-sm md:block">
+                Genome Variant Intelligence
               </span>
             </div>
             <ModeToggle />
@@ -168,7 +171,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-6">
+      <main className="relative z-10 mx-auto w-full max-w-7xl px-6 py-8">
         {selectedGene ? (
           <GeneViewer
             gene={selectedGene}
@@ -177,24 +180,24 @@ export default function HomePage() {
           />
         ) : (
           <>
-            <Card className="mb-6 gap-0 py-0 shadow-sm">
-              <CardHeader className="pt-4 pb-2">
+            <Card className="mb-6 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+              <CardHeader className="bg-muted/40 pt-5 pb-3">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-muted-foreground text-sm font-normal">
+                  <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
                     Genome Assembly
                   </CardTitle>
-                  <div className="text-muted-foreground text-xs">
+                  <div className="text-muted-foreground text-xs font-medium">
                     Organism: <span className="font-medium">Human</span>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="pb-4">
+              <CardContent className="space-y-2 pt-4 pb-5">
                 <Select
                   value={selectedGenome}
                   onValueChange={handleGenomeChange}
                   disabled={isLoading}
                 >
-                  <SelectTrigger className="border-border bg-card text-foreground focus-visible:ring-ring/40 h-9 w-full">
+                  <SelectTrigger className="border-border/80 bg-background text-foreground focus-visible:ring-ring/40 h-10 w-full rounded-xl">
                     <SelectValue placeholder="Select genome assembly" />
                   </SelectTrigger>
                   <SelectContent className="border-border bg-card text-foreground">
@@ -211,7 +214,7 @@ export default function HomePage() {
                   </SelectContent>
                 </Select>
                 {selectedGenome && (
-                  <p className="text-muted-foreground mt-2 text-xs">
+                  <p className="text-muted-foreground mt-2 text-xs leading-relaxed">
                     {
                       genomes.find((genome) => genome.id === selectedGenome)
                         ?.sourceName
@@ -221,26 +224,26 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="mt-6 gap-0 py-0 shadow-sm">
-              <CardHeader className="pt-4 pb-2">
-                <CardTitle className="text-muted-foreground text-sm font-normal">
+            <Card className="mt-6 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+              <CardHeader className="bg-muted/40 pt-5 pb-3">
+                <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
                   Browse
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pb-4">
+              <CardContent className="pt-4 pb-5">
                 <Tabs
                   value={mode}
                   onValueChange={(value) => switchMode(value as Mode)}
                 >
-                  <TabsList className="bg-muted mb-4">
+                  <TabsList className="bg-muted mb-4 h-10 rounded-xl p-1">
                     <TabsTrigger
-                      className="data-[state=active]:bg-background data-[state=active]:text-foreground"
+                      className="rounded-lg px-4 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
                       value="search"
                     >
                       Search Genes
                     </TabsTrigger>
                     <TabsTrigger
-                      className="data-[state=active]:bg-background data-[state=active]:text-foreground"
+                      className="rounded-lg px-4 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
                       value="browse"
                     >
                       Browse Chromosomes
@@ -259,11 +262,11 @@ export default function HomePage() {
                             placeholder="Enter gene symbol or name"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="h-9 pr-10"
+                            className="h-10 rounded-xl border-border/80 bg-background pr-10"
                           />
                           <Button
                             type="submit"
-                            className="bg-primary text-primary-foreground hover:bg-primary/90 absolute top-0 right-0 h-full cursor-pointer rounded-l-none"
+                            className="bg-primary text-primary-foreground hover:bg-primary/90 absolute top-0 right-0 h-full cursor-pointer rounded-l-none rounded-r-xl"
                             size="icon"
                             disabled={isLoading || !searchQuery.trim()}
                           >
@@ -274,7 +277,7 @@ export default function HomePage() {
                       </form>
                       <Button
                         variant="link"
-                        className="text-primary hover:text-primary/80 h-auto cursor-pointer p-0"
+                        className="text-primary hover:text-primary/80 h-auto cursor-pointer p-0 font-medium"
                         onClick={loadBRCA1Example}
                       >
                         Try BRCA1 example
@@ -290,7 +293,7 @@ export default function HomePage() {
                             key={chrom.name}
                             variant="outline"
                             size="sm"
-                            className={`hover:bg-muted h-8 cursor-pointer hover:text-foreground ${selectedChromosome === chrom.name ? "bg-muted text-foreground" : ""}`}
+                            className={`h-8 cursor-pointer rounded-full border-border/80 px-4 hover:bg-muted hover:text-foreground ${selectedChromosome === chrom.name ? "bg-primary/15 border-primary/40 text-foreground" : ""}`}
                             onClick={() => setSelectedChromosome(chrom.name)}
                           >
                             {chrom.name}
@@ -335,7 +338,7 @@ export default function HomePage() {
                       </h4>
                     </div>
 
-                    <div className="overflow-hidden rounded-md border border-border/70">
+                    <div className="overflow-hidden rounded-xl border border-border/70">
                       <Table>
                         <TableHeader>
                           <TableRow className="bg-muted/50 hover:bg-muted/70">

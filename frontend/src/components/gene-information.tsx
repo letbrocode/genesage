@@ -16,13 +16,13 @@ export function GeneInformation({
   geneBounds: GeneBounds | null;
 }) {
   return (
-    <Card className="gap-0 py-0 shadow-sm">
-      <CardHeader className="pt-4 pb-2">
-        <CardTitle className="text-muted-foreground text-sm font-normal">
+    <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+      <CardHeader className="bg-muted/40 pt-5 pb-3">
+        <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
           Gene Information
         </CardTitle>
       </CardHeader>
-      <CardContent className="pb-4">
+      <CardContent className="pt-4 pb-5">
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
             <div className="flex">

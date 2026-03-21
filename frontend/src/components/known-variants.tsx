@@ -100,9 +100,9 @@ export default function KnownVariants({
     }
   };
   return (
-    <Card className="gap-0 py-0 shadow-sm">
-      <CardHeader className="flex flex-row items-center justify-between pt-4 pb-2">
-        <CardTitle className="text-muted-foreground text-sm font-normal">
+    <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+      <CardHeader className="bg-muted/40 flex flex-row items-center justify-between pt-5 pb-3">
+        <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
           Known Variants in Gene from ClinVar
         </CardTitle>
         <Button
@@ -110,13 +110,13 @@ export default function KnownVariants({
           size="sm"
           onClick={refreshVariants}
           disabled={isLoadingClinvar}
-          className="text-foreground hover:bg-muted/70 h-7 cursor-pointer text-xs"
+          className="text-foreground hover:bg-muted/70 h-8 cursor-pointer rounded-full px-3 text-xs"
         >
           <RefreshCw className="mr-1 h-3 w-3" />
           Refresh
         </Button>
       </CardHeader>
-      <CardContent className="pb-4">
+      <CardContent className="pt-4 pb-5">
         {clinvarError && (
           <div className="bg-destructive/10 text-destructive mb-4 rounded-md p-3 text-xs">
             {clinvarError}
