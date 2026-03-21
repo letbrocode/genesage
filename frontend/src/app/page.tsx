@@ -148,14 +148,14 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <div className="bg-primary/15 pointer-events-none absolute top-[-10rem] left-[-8rem] h-72 w-72 rounded-full blur-3xl" />
-      <div className="bg-accent/15 pointer-events-none absolute right-[-8rem] bottom-[-8rem] h-72 w-72 rounded-full blur-3xl" />
+      <div className="bg-primary/15 pointer-events-none absolute top-[-10rem] left-[-8rem] h-72 w-72 animate-in fade-in duration-700 rounded-full blur-3xl" />
+      <div className="bg-accent/15 pointer-events-none absolute right-[-8rem] bottom-[-8rem] h-72 w-72 animate-in fade-in duration-700 rounded-full blur-3xl" />
 
       <header className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
         <div className="mx-auto w-full max-w-7xl px-6 py-4">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="relative">
+              <div className="animate-in fade-in slide-in-from-left-2 relative duration-500">
                 <h1 className="text-2xl font-semibold tracking-tight text-foreground">
                   <span>GENE</span>
                   <span className="text-primary">SAGE</span>
@@ -171,7 +171,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="relative z-10 mx-auto w-full max-w-7xl px-6 py-8">
+      <main className="animate-in fade-in slide-in-from-bottom-2 relative z-10 mx-auto w-full max-w-7xl px-6 py-8 duration-500">
         {selectedGene ? (
           <GeneViewer
             gene={selectedGene}
@@ -180,7 +180,7 @@ export default function HomePage() {
           />
         ) : (
           <>
-            <Card className="mb-6 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+            <Card className="mb-6 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:shadow-xl dark:shadow-black/25">
               <CardHeader className="bg-muted/40 pt-5 pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
@@ -224,7 +224,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="mt-6 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+            <Card className="mt-6 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-[1px] hover:shadow-xl dark:shadow-black/25">
               <CardHeader className="bg-muted/40 pt-5 pb-3">
                 <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
                   Browse
@@ -286,7 +286,7 @@ export default function HomePage() {
                   </TabsContent>
 
                   <TabsContent value="browse" className="mt-0">
-                    <div className="max-h-[150px] overflow-y-auto pr-1">
+                    <div className="max-h-[150px] overflow-y-auto pr-1 animate-in fade-in duration-300">
                       <div className="flex flex-wrap gap-2">
                         {chromosomes.map((chrom) => (
                           <Button
@@ -338,7 +338,7 @@ export default function HomePage() {
                       </h4>
                     </div>
 
-                    <div className="overflow-hidden rounded-xl border border-border/70">
+                    <div className="overflow-hidden rounded-xl border border-border/70 animate-in fade-in slide-in-from-bottom-2 duration-300">
                       <Table>
                         <TableHeader>
                           <TableRow className="bg-muted/50 hover:bg-muted/70">
@@ -357,7 +357,7 @@ export default function HomePage() {
                           {searchResults.map((gene, index) => (
                             <TableRow
                               key={`${gene.symbol}-${index}`}
-                              className="hover:bg-muted/50 cursor-pointer border-b border-border/70"
+                              className="hover:bg-muted/50 cursor-pointer border-b border-border/70 transition-colors duration-200"
                               onClick={() => setSelectedGene(gene)}
                             >
                               <TableCell className="text-foreground py-2 font-medium">

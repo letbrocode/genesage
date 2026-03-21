@@ -241,7 +241,7 @@ export function GeneSequence({
               setHoverPosition(null);
               setMousePosition(null);
             }}
-            className={`${color} group relative cursor-pointer`}
+            className={`${color} group relative cursor-pointer transition-opacity duration-150 hover:opacity-80`}
           >
             {nucleotide}
           </span>,
@@ -262,7 +262,7 @@ export function GeneSequence({
   }, [sequenceData, sequenceRange, onSequenceClick]);
 
   return (
-    <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+    <Card className="animate-in fade-in slide-in-from-bottom-2 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm duration-300 dark:shadow-black/25">
       <CardHeader className="bg-muted/40 pt-5 pb-3">
         <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
           Gene Sequence
@@ -304,7 +304,7 @@ export function GeneSequence({
 
                   {/* Selected range */}
                   <div
-                    className="absolute top-1/2 h-2 -translate-y-1/2 cursor-grab rounded-full bg-foreground active:cursor-grabbing"
+                    className="absolute top-1/2 h-2 -translate-y-1/2 cursor-grab rounded-full bg-foreground transition-all duration-150 active:cursor-grabbing"
                     style={{
                       left: `${sliderValues.start}%`,
                       width: `${sliderValues.end - sliderValues.start}%`,
@@ -349,7 +349,7 @@ export function GeneSequence({
                   size="sm"
                   disabled={isLoading}
                   onClick={onSequenceLoadRequest}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 w-full cursor-pointer rounded-lg px-4 text-xs sm:w-auto"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 w-full cursor-pointer rounded-lg px-4 text-xs transition-colors duration-200 sm:w-auto"
                 >
                   {isLoading ? "Loading..." : "Load sequence"}
                 </Button>
@@ -441,4 +441,5 @@ export function GeneSequence({
     </Card>
   );
 }
+
 

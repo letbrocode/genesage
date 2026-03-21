@@ -100,7 +100,7 @@ export default function KnownVariants({
     }
   };
   return (
-    <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+    <Card className="animate-in fade-in slide-in-from-bottom-2 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm duration-300 dark:shadow-black/25">
       <CardHeader className="bg-muted/40 flex flex-row items-center justify-between pt-5 pb-3">
         <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
           Known Variants in Gene from ClinVar
@@ -110,7 +110,7 @@ export default function KnownVariants({
           size="sm"
           onClick={refreshVariants}
           disabled={isLoadingClinvar}
-          className="text-foreground hover:bg-muted/70 h-8 cursor-pointer rounded-full px-3 text-xs"
+          className="text-foreground hover:bg-muted/70 h-8 cursor-pointer rounded-full px-3 text-xs transition-colors duration-200"
         >
           <RefreshCw className="mr-1 h-3 w-3" />
           Refresh
@@ -150,7 +150,7 @@ export default function KnownVariants({
                 {clinvarVariants.map((variant) => (
                   <TableRow
                     key={variant.clinvar_id}
-                    className="border-border/70 border-b"
+                    className="border-border/70 border-b transition-colors duration-200 hover:bg-muted/40"
                   >
                     <TableCell className="py-2">
                       <div className="text-foreground text-xs font-medium">
@@ -203,7 +203,7 @@ export default function KnownVariants({
                             <Button
                               variant="outline"
                               size="sm"
-                              className="bg-muted text-foreground hover:bg-muted/80 h-7 cursor-pointer border-border/80 px-3 text-xs"
+                              className="bg-muted text-foreground hover:bg-muted/80 h-7 cursor-pointer border-border/80 px-3 text-xs transition-colors duration-200"
                               disabled={variant.isAnalyzing}
                               onClick={() => analyzeVariant(variant)}
                             >
@@ -223,7 +223,7 @@ export default function KnownVariants({
                             <Button
                               variant="outline"
                               size="sm"
-                              className="h-7 cursor-pointer border-green-300/70 bg-green-100/70 px-3 text-xs text-green-800 hover:bg-green-100"
+                              className="h-7 cursor-pointer border-green-300/70 bg-green-100/70 px-3 text-xs text-green-800 transition-colors duration-200 hover:bg-green-100"
                               onClick={() => showComparison(variant)}
                             >
                               <BarChart2 className="mr-1 inline-block h-3 w-3" />

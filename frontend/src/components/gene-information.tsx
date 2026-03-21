@@ -16,7 +16,7 @@ export function GeneInformation({
   geneBounds: GeneBounds | null;
 }) {
   return (
-    <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+    <Card className="animate-in fade-in slide-in-from-bottom-2 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm duration-300 dark:shadow-black/25">
       <CardHeader className="bg-muted/40 pt-5 pb-3">
         <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
           Gene Information
@@ -79,7 +79,7 @@ export function GeneInformation({
                   <a
                     href={`https://www.ncbi.nlm.nih.gov/gene/${gene.gene_id}`}
                     target="_blank"
-                    className="text-primary flex items-center hover:underline"
+                    className="text-primary flex items-center transition-opacity duration-200 hover:underline hover:opacity-85"
                   >
                     {gene.gene_id}
                     <ExternalLink className="ml-1 inline-block h-3 w-3" />

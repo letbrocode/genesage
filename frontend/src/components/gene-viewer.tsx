@@ -224,11 +224,11 @@ export default function GeneViewer({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
       <Button
         variant="ghost"
         size="sm"
-        className="text-foreground hover:bg-muted/70 h-9 cursor-pointer rounded-full border border-border/70 px-4"
+        className="text-foreground hover:bg-muted/70 h-9 cursor-pointer rounded-full border border-border/70 px-4 transition-colors duration-200"
         onClick={onClose}
       >
         <ArrowLeft className="mr-2 h-4 w-4" />

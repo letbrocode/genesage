@@ -116,7 +116,7 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
     };
 
     return (
-      <Card className="gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm dark:shadow-black/25">
+      <Card className="animate-in fade-in slide-in-from-bottom-2 gap-0 overflow-hidden rounded-2xl border border-border/70 bg-card/90 py-0 shadow-lg shadow-black/5 backdrop-blur-sm duration-300 dark:shadow-black/25">
         <CardHeader className="bg-muted/40 pt-5 pb-3">
           <CardTitle className="text-foreground text-sm font-semibold uppercase tracking-wide">
             Variant Analysis
@@ -171,7 +171,7 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
             )}
             <Button
               disabled={isAnalyzing || !variantPosition || !variantAlternative}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 cursor-pointer text-xs"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 cursor-pointer text-xs transition-colors duration-200"
               onClick={() =>
                 handleVariantSubmit(
                   variantPosition.replaceAll(",", ""),
@@ -215,7 +215,7 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
                 return (
                   <div
                     key={matchedVariant.clinvar_id}
-                    className="bg-muted/40 border-border mt-4 rounded-md border p-4"
+                    className="bg-muted/40 border-border mt-4 rounded-md border p-4 animate-in fade-in duration-300"
                   >
                     <div className="mb-3 flex items-center justify-between">
                       <h4 className="text-foreground text-sm font-medium">
@@ -258,7 +258,7 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
                           disabled={isAnalyzing}
                           variant="outline"
                           size="sm"
-                          className="bg-muted text-foreground hover:bg-muted/80 h-7 cursor-pointer border-border/80 text-xs"
+                          className="bg-muted text-foreground hover:bg-muted/80 h-7 cursor-pointer border-border/80 text-xs transition-colors duration-200"
                           onClick={() => void (async () => {
                             setVariantAlternative(alt);
                             await handleVariantSubmit(
@@ -290,7 +290,7 @@ const VariantAnalysis = forwardRef<VariantAnalysisHandle, VariantAnalysisProps>(
             </div>
           )}
           {variantResult && (
-            <div className="bg-muted/40 border-border mt-6 rounded-md border p-4">
+            <div className="bg-muted/40 border-border mt-6 rounded-md border p-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h4 className="text-foreground mb-3 text-sm font-medium">
                 Analysis Result
               </h4>

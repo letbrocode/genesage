@@ -16,8 +16,8 @@ export function VariantComparisonModal({
   if (!comparisonVariant?.evo2Result) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4 backdrop-blur-sm">
-      <div className="bg-card max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border/70 shadow-2xl shadow-black/30">
+    <div className="fixed inset-0 z-50 flex animate-in fade-in items-center justify-center bg-black/55 p-4 backdrop-blur-sm duration-200">
+      <div className="bg-card animate-in zoom-in-95 max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border/70 shadow-2xl shadow-black/30 duration-300">
         {/* Modal header */}
         <div className="border-border border-b p-5">
           <div className="flex items-center justify-between">
@@ -28,7 +28,7 @@ export function VariantComparisonModal({
               variant="ghost"
               size="sm"
               onClick={onClose}
-              className="text-muted-foreground hover:bg-muted/70 hover:text-foreground h-7 w-7 cursor-pointer p-0"
+              className="text-muted-foreground hover:bg-muted/70 hover:text-foreground h-7 w-7 cursor-pointer p-0 transition-colors duration-200"
             >
               <X className="h-5 w-5" />
             </Button>
@@ -103,7 +103,7 @@ export function VariantComparisonModal({
                         </span>
                         <a
                           href={`https://www.ncbi.nlm.nih.gov/clinvar/variation/${comparisonVariant.clinvar_id}`}
-                          className="text-primary text-xs hover:underline"
+                          className="text-primary text-xs transition-opacity duration-200 hover:underline hover:opacity-80"
                           target="_blank"
                         >
                           {comparisonVariant.clinvar_id}
