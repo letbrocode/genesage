@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --green: #3c4f3d;
       --orange: #de8246;
       --orange-glow: #f4a261;
       --bg-dark: #0c1410;
@@ -27,13 +26,8 @@
         radial-gradient(ellipse at 80% 20%, rgba(222,130,70,0.08) 0%, transparent 50%);
     }
 
-    .reveal {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-    }
-
+    .reveal { font-family: 'Inter', sans-serif; color: var(--text); }
     .reveal .slides { text-align: left; }
-
     .reveal .slides section {
       padding: 36px 50px;
       height: 100%;
@@ -41,10 +35,9 @@
       flex-direction: column;
       justify-content: center;
     }
-
     .reveal .slide-background { background: transparent !important; }
 
-    /* ── Title Slide ── */
+    /* ── Title ── */
     .title-slide { justify-content: space-between !important; padding-top: 100px !important; padding-bottom: 40px !important; }
     .title-slide h1 { font-size: 2.8em; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
     .title-slide .gene { color: var(--text); }
@@ -53,36 +46,36 @@
     .title-slide .tag { background: rgba(222,130,70,0.12); color: var(--orange); padding: 4px 14px; border-radius: 20px; font-size: 0.7em; font-weight: 500; border: 1px solid rgba(222,130,70,0.2); display: inline-block; }
     .title-slide .bottom-bar { display: flex; justify-content: space-between; align-items: center; font-size: 0.6em; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; }
 
-    /* ── Section Headers ── */
+    /* ── Headers ── */
     .reveal h2 { font-size: 1.3em; font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: -0.02em; }
     .reveal h2 .accent { color: var(--orange); }
     .section-line { width: 40px; height: 3px; background: linear-gradient(90deg, var(--orange), var(--orange-glow)); border-radius: 2px; margin-bottom: 14px; }
 
-    /* ── Content ── */
-    .content-text { font-size: 0.68em; color: var(--text-muted); line-height: 1.65; }
+    /* ── Text ── */
+    .content-text { font-size: 0.7em; color: var(--text-muted); line-height: 1.65; }
     .content-text strong { color: var(--text); font-weight: 600; }
     .content-text em.hl { color: var(--orange); font-style: normal; font-weight: 500; }
 
-    /* ── Card Grids ── */
+    /* ── Cards ── */
     .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
     .card-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
     .card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 16px; }
     .card .card-num { font-family: 'JetBrains Mono', monospace; font-size: 0.55em; color: var(--orange); font-weight: 500; margin-bottom: 3px; }
     .card h3 { font-size: 0.72em; font-weight: 600; color: var(--text); margin: 0 0 4px 0; }
-    .card p { font-size: 0.58em; color: var(--text-muted); line-height: 1.5; margin: 0; }
+    .card p { font-size: 0.6em; color: var(--text-muted); line-height: 1.5; margin: 0; }
 
-    /* ── Stats Row ── */
+    /* ── Stats ── */
     .stats-row { display: flex; gap: 10px; margin-top: 12px; }
     .stat-item { text-align: center; flex: 1; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 8px; }
     .stat-item .stat-value { font-family: 'JetBrains Mono', monospace; font-size: 1.2em; font-weight: 700; color: var(--orange); line-height: 1; }
     .stat-item .stat-label { font-size: 0.5em; color: var(--text-muted); margin-top: 4px; }
 
-    /* ── Methodology Flow ── */
+    /* ── Flow Steps ── */
     .flow { display: flex; align-items: stretch; gap: 6px; margin-top: 12px; }
-    .flow-step { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 10px 12px; flex: 1; }
+    .flow-step { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; flex: 1; }
     .flow-step .step-num { font-family: 'JetBrains Mono', monospace; font-size: 0.5em; color: var(--orange); font-weight: 500; margin-bottom: 3px; }
-    .flow-step h4 { font-size: 0.62em; font-weight: 600; color: var(--text); margin: 0 0 3px 0; }
-    .flow-step p { font-size: 0.5em; color: var(--text-muted); line-height: 1.4; margin: 0; }
+    .flow-step h4 { font-size: 0.65em; font-weight: 600; color: var(--text); margin: 0 0 4px 0; }
+    .flow-step p { font-size: 0.52em; color: var(--text-muted); line-height: 1.4; margin: 0; }
     .flow-arrow { font-size: 0.8em; color: rgba(255,255,255,0.15); display: flex; align-items: center; }
 
     /* ── Formula ── */
@@ -92,7 +85,7 @@
     .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
     .result-card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 14px; }
     .result-card .label { font-size: 0.5em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
-    .result-card .value { font-size: 0.6em; color: var(--text); font-weight: 400; line-height: 1.5; }
+    .result-card .value { font-size: 0.62em; color: var(--text); line-height: 1.5; }
     .result-card .value .positive { color: #6ee7a0; font-weight: 500; }
 
     /* ── Tech Pills ── */
@@ -100,25 +93,38 @@
     .tech-pill { font-size: 0.52em; padding: 3px 10px; border-radius: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); font-weight: 500; }
     .tech-pill.highlight { background: rgba(222,130,70,0.1); border-color: rgba(222,130,70,0.2); color: var(--orange); }
 
-    /* ── Conclusion Takeaways ── */
+    /* ── Conclusion ── */
     .takeaway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
     .takeaway { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px; }
     .takeaway .icon { font-size: 1em; flex-shrink: 0; }
     .takeaway .text h4 { font-size: 0.65em; font-weight: 600; color: var(--text); margin: 0 0 3px 0; }
-    .takeaway .text p { font-size: 0.52em; color: var(--text-muted); line-height: 1.45; margin: 0; }
+    .takeaway .text p { font-size: 0.55em; color: var(--text-muted); line-height: 1.45; margin: 0; }
+
+    /* ── Diagram Slides ── */
+    .diagram-slide { justify-content: flex-start !important; }
+    .diagram-img-wrap { flex: 1; display: flex; align-items: center; justify-content: center; margin-top: 8px; overflow: hidden; }
+    .diagram-img-wrap img { max-width: 100%; max-height: 530px; object-fit: contain; border-radius: 10px; }
 
     /* ── CTA Bar ── */
     .cta-bar { margin-top: 14px; padding: 12px 18px; background: linear-gradient(135deg, rgba(222,130,70,0.1), rgba(60,79,61,0.1)); border: 1px solid rgba(222,130,70,0.15); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
     .cta-bar .cta-text { font-size: 0.6em; color: var(--text); font-weight: 500; }
     .cta-bar .cta-link { font-family: 'JetBrains Mono', monospace; font-size: 0.55em; color: var(--orange); }
 
-    /* ── Reveal Overrides ── */
+    /* ── Logo ── */
+    .college-logo { position: fixed; top: 16px; left: 20px; z-index: 100; pointer-events: none; }
+    .college-logo img { width: 96px; height: 96px; border-radius: 50%; opacity: 0.85; filter: invert(1); }
+
+    /* ── Reveal ── */
     .reveal .progress { color: var(--orange); height: 3px; }
     .reveal .slide-number { font-family: 'JetBrains Mono', monospace; font-size: 0.5em; color: var(--text-muted); opacity: 0.4; background: transparent; }
     .reveal .controls { color: var(--orange); }
   </style>
 </head>
 <body>
+  <div class="college-logo">
+    <img src="logo.png" alt="Vidyavardhini">
+  </div>
+
   <div class="reveal">
     <div class="slides">
 
@@ -130,15 +136,13 @@
             <span class="gene">GENE</span><span class="sage">SAGE</span>
           </h1>
           <p class="subtitle">
-            Predicting genetic variant pathogenicity using<br>
-            the Evo2 deep learning foundation model
+            Predicting whether a DNA mutation is harmful or harmless<br>
+            using the Evo2 AI model
           </p>
         </div>
         <div class="bottom-bar">
           <span>Product Showcase · April 2026</span>
-          <span style="color: var(--orange); font-family: 'JetBrains Mono', monospace; font-size: 0.95em;">
-            Evo2 7B · Modal · Next.js
-          </span>
+          <span style="color: var(--orange); font-family: 'JetBrains Mono', monospace;">Evo2 7B · Modal · Next.js</span>
         </div>
       </section>
 
@@ -147,31 +151,31 @@
         <h2><span class="accent">01</span> Abstract</h2>
         <div class="section-line"></div>
         <p class="content-text">
-          <strong>10–40% of genetic test results</strong> are classified as <em class="hl">Variants of Uncertain Significance (VUS)</em> — 
-          mutations whose impact on health is unknown. These non-actionable results leave patients in diagnostic limbo 
-          and disproportionately affect underrepresented populations.
+          When doctors run a genetic test, <strong>10–40% of results</strong> come back as
+          <em class="hl">Variants of Uncertain Significance (VUS)</em> — mutations where no one knows
+          if they cause disease or not. This leaves patients stuck with no clear answer.
         </p>
         <p class="content-text" style="margin-top: 8px;">
-          <strong>GeneSage</strong> uses <em class="hl">Evo2</em>, a 7B-parameter DNA foundation model trained on 
-          <em class="hl">9.3 trillion nucleotides</em> across all domains of life, to predict whether a genetic variant 
-          is pathogenic or benign — with <strong>zero-shot accuracy exceeding 90%</strong>.
+          <strong>GeneSage</strong> uses an AI model called <em class="hl">Evo2</em> — trained on
+          <em class="hl">9.3 trillion DNA letters</em> from 128,000+ species — to instantly predict
+          whether a mutation is <strong>likely harmful or likely safe</strong>, with over 90% accuracy.
         </p>
         <div class="stats-row">
           <div class="stat-item">
             <div class="stat-value">9.3T</div>
-            <div class="stat-label">Training nucleotides</div>
+            <div class="stat-label">DNA letters trained on</div>
           </div>
           <div class="stat-item">
             <div class="stat-value">7B</div>
-            <div class="stat-label">Parameters</div>
+            <div class="stat-label">AI model parameters</div>
           </div>
           <div class="stat-item">
             <div class="stat-value">>90%</div>
-            <div class="stat-label">BRCA1 accuracy</div>
+            <div class="stat-label">Prediction accuracy</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value">0-shot</div>
-            <div class="stat-label">No task-specific training</div>
+            <div class="stat-value">Real-time</div>
+            <div class="stat-label">Results in seconds</div>
           </div>
         </div>
       </section>
@@ -180,29 +184,28 @@
       <section>
         <h2><span class="accent">02</span> Aim</h2>
         <div class="section-line"></div>
-        <p class="content-text" style="font-size: 0.75em;">
-          To build an accessible web platform that <em class="hl">democratizes AI-powered genomic variant analysis</em> — 
-          enabling researchers and clinicians to predict the impact of DNA mutations 
-          <strong>without GPU infrastructure or bioinformatics expertise</strong>.
+        <p class="content-text" style="font-size: 0.78em;">
+          To build a simple web tool that lets <em class="hl">anyone</em> — doctors, researchers,
+          or students — check whether a specific DNA mutation is dangerous,
+          <strong>without needing any technical background or expensive equipment</strong>.
         </p>
         <div class="card-grid" style="margin-top: 14px;">
           <div class="card">
             <h3>🧬 For Clinicians</h3>
-            <p>Rapidly triage VUS results before expensive functional follow-up. Get AI-powered predictions for any SNV in seconds.</p>
+            <p>Get an instant AI prediction on any uncertain mutation — before ordering expensive lab tests.</p>
           </div>
           <div class="card">
             <h3>🔬 For Researchers</h3>
-            <p>Screen candidate variants, validate against ClinVar, and explore gene sequences with an interactive genomic browser.</p>
+            <p>Browse any gene, explore its DNA, and compare AI predictions against known clinical records.</p>
           </div>
         </div>
         <div class="tech-pills">
-          <span class="tech-pill highlight">Evo2 7B</span>
-          <span class="tech-pill highlight">NVIDIA H100</span>
-          <span class="tech-pill">Modal Serverless</span>
-          <span class="tech-pill">Next.js 15</span>
-          <span class="tech-pill">UCSC Genome API</span>
-          <span class="tech-pill">NCBI / ClinVar</span>
-          <span class="tech-pill">TypeScript</span>
+          <span class="tech-pill highlight">Evo2 AI Model</span>
+          <span class="tech-pill highlight">NVIDIA H100 GPU</span>
+          <span class="tech-pill">Next.js Web App</span>
+          <span class="tech-pill">NCBI Gene Database</span>
+          <span class="tech-pill">ClinVar Clinical Records</span>
+          <span class="tech-pill">UCSC Genome Database</span>
         </div>
       </section>
 
@@ -213,156 +216,163 @@
         <div class="card-grid three-col">
           <div class="card">
             <div class="card-num">01</div>
-            <h3>Deploy Evo2</h3>
-            <p>Serverless GPU endpoint on H100 via Modal with warm singleton pattern.</p>
+            <h3>Run Evo2 on the Cloud</h3>
+            <p>Deploy the AI model on a powerful GPU so anyone can use it without owning hardware.</p>
           </div>
           <div class="card">
             <div class="card-num">02</div>
-            <h3>Gene Explorer</h3>
-            <p>Search genes, browse chromosomes, visualize DNA at nucleotide level.</p>
+            <h3>Gene Browser</h3>
+            <p>Search any human gene, pick a chromosome, and view the DNA sequence interactively.</p>
           </div>
           <div class="card">
             <div class="card-num">03</div>
-            <h3>Multi-API Integration</h3>
-            <p>UCSC Genome Browser, NCBI Gene, and ClinVar for rich genomic context.</p>
+            <h3>Connect to Gene Databases</h3>
+            <p>Pull real gene data and known mutations from NCBI, ClinVar, and UCSC automatically.</p>
           </div>
           <div class="card">
             <div class="card-num">04</div>
-            <h3>Variant Analysis</h3>
-            <p>Accept position + alternative, fetch context, score with Evo2, classify.</p>
+            <h3>Analyse Any Mutation</h3>
+            <p>Enter a position and a changed DNA letter — get a prediction with a confidence score.</p>
           </div>
           <div class="card">
             <div class="card-num">05</div>
-            <h3>ClinVar Comparison</h3>
-            <p>One-click Evo2 analysis on known variants to compare AI vs. clinical data.</p>
+            <h3>Compare with Known Records</h3>
+            <p>See how the AI's answer compares to what medical databases already say about a mutation.</p>
           </div>
           <div class="card">
             <div class="card-num">06</div>
-            <h3>Calibrated Threshold</h3>
-            <p>ROC-optimized boundary from BRCA1 benchmark (Findlay et al., 2018).</p>
+            <h3>Tune the AI's Decision</h3>
+            <p>Calibrate the yes/no threshold using a real BRCA1 mutation dataset of 500 known variants.</p>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 5: Methodology -->
+      <!-- SLIDE 5: DFD -->
+      <section class="diagram-slide">
+        <h2><span class="accent">04</span> Data Flow Diagram</h2>
+        <div class="section-line"></div>
+        <div class="diagram-img-wrap">
+          <img src="dfd.png" alt="Data Flow Diagram">
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Methodology -->
       <section>
-        <h2><span class="accent">04</span> Methodology</h2>
+        <h2><span class="accent">05</span> Methodology</h2>
         <div class="section-line"></div>
         <div class="flow">
           <div class="flow-step">
             <div class="step-num">STEP 1</div>
-            <h4>Fetch Reference</h4>
-            <p>8,192 bp window from UCSC Genome API</p>
+            <h4>Get the Normal DNA</h4>
+            <p>Fetch the original DNA sequence around the mutation from an online genome database</p>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="step-num">STEP 2</div>
-            <h4>Build Variant</h4>
-            <p>Substitute alternative nucleotide at position</p>
+            <h4>Apply the Mutation</h4>
+            <p>Create a second copy of the sequence with the changed DNA letter in place</p>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="step-num">STEP 3</div>
-            <h4>Score with Evo2</h4>
-            <p>Log-likelihood for ref & variant sequences</p>
+            <h4>Score Both with Evo2</h4>
+            <p>The AI scores how "natural" each sequence looks based on 9.3T training letters</p>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="step-num">STEP 4</div>
-            <h4>Classify</h4>
-            <p>Threshold + confidence scoring</p>
+            <h4>Predict & Classify</h4>
+            <p>If the mutated version scores much lower → likely harmful. Near same → likely safe.</p>
           </div>
         </div>
         <div class="formula-box">
-          Δ = score(variant) − score(reference) &nbsp;│&nbsp; 
-          Δ &lt; −0.000918 → Pathogenic &nbsp;│&nbsp; 
-          Δ ≥ −0.000918 → Benign
-        </div>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Threshold Derivation</h3>
-            <p>ROC analysis on 500 BRCA1 variants. Optimal boundary via <strong style="color:var(--text)">Youden's J statistic</strong> (max TPR − FPR).</p>
-          </div>
-          <div class="card">
-            <h3>Confidence Metric</h3>
-            <p>Normalized distance from threshold: <span style="font-family:'JetBrains Mono';color:var(--orange);font-size:0.9em">|Δ − threshold| / σ</span>, capped at 100%.</p>
-          </div>
+          Score drop (Δ) = AI score of mutation − AI score of normal DNA
+          &nbsp;│&nbsp; Large drop → Harmful &nbsp;│&nbsp; Small drop → Safe
         </div>
       </section>
 
-      <!-- SLIDE 6: Results -->
+      <!-- SLIDE 7: Flow Diagram -->
+      <section class="diagram-slide">
+        <h2><span class="accent">06</span> System Flow</h2>
+        <div class="section-line"></div>
+        <div class="diagram-img-wrap">
+          <img src="flow.png" alt="System Flow Diagram">
+        </div>
+      </section>
+
+      <!-- SLIDE 8: Results -->
       <section>
-        <h2><span class="accent">05</span> Results</h2>
+        <h2><span class="accent">07</span> Results</h2>
         <div class="section-line"></div>
         <div class="results-grid">
           <div class="result-card">
-            <div class="label">Classification Accuracy</div>
-            <div class="value"><span class="positive">>90% accuracy</span> on BRCA1 benchmark — pathogenic vs. benign, zero-shot</div>
+            <div class="label">Accuracy</div>
+            <div class="value"><span class="positive">>90% correct</span> on 500 real BRCA1 mutations — harmful vs. safe</div>
           </div>
           <div class="result-card">
-            <div class="label">Real-Time Inference</div>
-            <div class="value">Single variant in <span class="positive">seconds</span> on warm H100 with pre-loaded model</div>
+            <div class="label">Speed</div>
+            <div class="value">Prediction delivered in <span class="positive">seconds</span> — model stays loaded between requests</div>
           </div>
           <div class="result-card">
-            <div class="label">ClinVar Agreement</div>
-            <div class="value">Evo2 predictions <span class="positive">align with clinical classifications</span> for known variants</div>
+            <div class="label">Agreement with Doctors</div>
+            <div class="value">AI predictions <span class="positive">match clinical records</span> for known mutations in ClinVar</div>
           </div>
           <div class="result-card">
-            <div class="label">Gene Coverage</div>
-            <div class="value">Works for <span class="positive">any human gene</span>, any chromosome, hg38 & hg19</div>
+            <div class="label">Coverage</div>
+            <div class="value">Works for <span class="positive">any human gene</span> across all chromosomes, hg38 & hg19</div>
           </div>
         </div>
         <div class="stats-row">
           <div class="stat-item">
-            <div class="stat-value" style="font-size: 0.95em;">128K+</div>
-            <div class="stat-label">Training genomes</div>
+            <div class="stat-value" style="font-size: 0.9em;">128K+</div>
+            <div class="stat-label">Species Evo2 learned from</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value" style="font-size: 0.95em;">1M bp</div>
-            <div class="stat-label">Max context</div>
+            <div class="stat-value" style="font-size: 0.9em;">1M bp</div>
+            <div class="stat-label">Max DNA window the AI can read</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value" style="font-size: 0.95em;">3 APIs</div>
-            <div class="stat-label">Integrated</div>
+            <div class="stat-value" style="font-size: 0.9em;">3</div>
+            <div class="stat-label">Live gene databases connected</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value" style="font-size: 0.95em;">6</div>
-            <div class="stat-label">UI components</div>
+            <div class="stat-value" style="font-size: 0.9em;">500</div>
+            <div class="stat-label">BRCA1 variants used to calibrate</div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 7: Conclusion -->
+      <!-- SLIDE 9: Conclusion -->
       <section>
-        <h2><span class="accent">06</span> Conclusion</h2>
+        <h2><span class="accent">08</span> Conclusion</h2>
         <div class="section-line"></div>
         <div class="takeaway-grid">
           <div class="takeaway">
             <div class="icon">🧬</div>
             <div class="text">
-              <h4>AI for Genomic Uncertainty</h4>
-              <p>Foundation models like Evo2 provide clinically meaningful variant predictions without task-specific training data.</p>
+              <h4>AI Can Help Solve Genetic Uncertainty</h4>
+              <p>Evo2 can predict whether a mutation is dangerous — without needing specific training on medical records.</p>
             </div>
           </div>
           <div class="takeaway">
             <div class="icon">⚡</div>
             <div class="text">
-              <h4>Accessible Infrastructure</h4>
-              <p>Serverless GPU deployment makes cutting-edge genomic AI accessible without dedicated hardware.</p>
+              <h4>No Hardware Needed</h4>
+              <p>Running on cloud GPUs means any hospital or lab can use this for free, from a browser.</p>
             </div>
           </div>
           <div class="takeaway">
             <div class="icon">🔍</div>
             <div class="text">
-              <h4>Built-in Validation</h4>
-              <p>ClinVar comparison lets users verify AI reliability against established clinical evidence.</p>
+              <h4>Verifiable Results</h4>
+              <p>Every AI prediction can be compared side-by-side with what doctors already know from ClinVar.</p>
             </div>
           </div>
           <div class="takeaway">
             <div class="icon">🌍</div>
             <div class="text">
-              <h4>Real-World Impact</h4>
-              <p>Accelerates VUS resolution, reduces diagnostic delays, improves health equity in genetic testing.</p>
+              <h4>Real Patient Impact</h4>
+              <p>Faster answers on uncertain mutations means fewer delays, less anxiety, and better care.</p>
             </div>
           </div>
         </div>
